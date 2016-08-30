@@ -1,0 +1,17 @@
+%form
+  .form-group.row.has-danger
+    .col-md-4
+      %input.form-control.form-control-danger{:placeholder => "Business Name", :type => "text"}
+      .form-control-feedback Can't be blank
+
+  .form-group.row.has-danger
+    .col-md-4
+      %label{:for => "exampleSelect1"} Category
+      %select#exampleSelect1.form-control
+        %option Restaurant
+        %option Night Life
+        %option Education
+        %option Automotive
+        %option Arts and Entertainment
+      .form-control-feedback Can't be blank
+  %button.btn.btn-primary{:type => "submit"} Save
