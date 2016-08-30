@@ -12,11 +12,8 @@
  *
  */
 
- @import 'reset';
+ @import "bootstrap";
 
- $lust-red: #E62020;
-
- .nav {
- 	min-height: 50px;
- 	background: $lust-red;
-}
+ .top-nav {
+ 	padding: 20px;
+ }
