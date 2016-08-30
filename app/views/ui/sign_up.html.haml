@@ -1,20 +1,24 @@
 .form-container
-  .form-group.row
+  .form-group.row.has-danger
     %label.col-xs-2.col-form-label{:for => "example-text-input"} First Name
     .col-xs-4
-      %input.form-control{:placeholder => "Kate", :type => "text"}
-  .form-group.row
+      %input.form-control.form-control-danger{:placeholder => "Kate", :type => "text"}
+      .form-control-feedback Can't be blank
+  .form-group.row.has-danger
     %label.col-xs-2.col-form-label{:for => "example-search-input"} Last Name
     .col-xs-4
-      %input.form-control{:placeholder => "Doe", :type => "text"}
-  .form-group.row
+      %input.form-control.form-control-danger{:placeholder => "Doe", :type => "text"}
+      .form-control-feedback Can't be blank
+  .form-group.row.has-danger
     %label.col-xs-2.col-form-label{:for => "example-email-input"} Email
     .col-xs-4
-      %input.form-control{:placeholder => "user@gmail.com", :type => "email"}
-  .form-group.row
+      %input.form-control.form-control-danger{:placeholder => "user@gmail.com", :type => "email"}
+      .form-control-feedback Can't be blank
+  .form-group.row.has-danger
     %label.col-xs-2.col-form-label{:for => "example-email-input"} Password
     .col-xs-4
-      %input.form-control{:placeholder => "hard-to-guess-word", :type => "email"}
+      %input.form-control.form-control-danger{:placeholder => "hard-to-guess-word", :type => "email"}
+      .form-control-feedback Can't be blank
 
   .form-group.row
     %button.btn.btn-info{:type => "submit"} Sing Up
