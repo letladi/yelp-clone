@@ -1,6 +1,22 @@
-%h1(class='header-title') Yelp
+%ul.nav.row.top-nav
+  %li.nav-item.col-md-4
+    %h1
+      %a.nav-link.active{:href => "#"} Yelp
+  %li.nav-item.col-md-4
+    .input-group
+      %span#basic-addon1.input-group-addon Find
+      %input.form-control{placeholder: "tacos, cheap dinner, Max's", type: "text", name: "search"}
+      %span#basic-addon2.input-group-addon 
+        = link_to 'Search', '#', class: 'nav-link'
 
-%li Home
-%li Reviews
-%li Login
-%li Sign up
+  %li.nav-item.col-md-4
+    = link_to 'Sign Up', '#', class: 'nav-link btn btn-secondary'
+    = link_to 'Log In', '#', class: 'nav-link btn btn-secondary'  
+
+%ul.nav.nav-tabs
+  %li.nav-item
+    = link_to 'Home', '#', class: 'nav-link active'
+  %li.nav-item
+    = link_to 'Reviews', '#', class: 'nav-link'
+  %li.nav-item
+    = link_to 'Reviews', '#', class: 'nav-link'
