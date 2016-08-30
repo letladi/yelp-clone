@@ -1,0 +1,38 @@
+.container
+  .row
+    %h3 Letladi Sebesho
+    %span.tag.tag-default 
+      &#9733; 5 Reviews
+  - 5.times do
+    .row
+      .card.card-outline-secondary
+        %h5= link_to 'Business Name', '#'
+        %h6 
+          &#9733; &#9734; &#9734; &#9734; &#9734;
+          %small.text-muted 
+            28/08/16
+        %p This is one of the more memorable experiences of my life. What a restaurant.
+
+    
+  %nav{"aria-label" => "..."}
+    %ul.pagination
+      %li.page-item.disabled
+        %a.page-link{"aria-label" => "Previous", :href => "#", :tabindex => "-1"}
+          %span{"aria-hidden" => "true"} «
+          %span.sr-only Previous
+      %li.page-item.active
+        %a.page-link{:href => "#"}
+          1
+          %span.sr-only (current)
+      %li.page-item
+        %a.page-link{:href => "#"} 2
+      %li.page-item
+        %a.page-link{:href => "#"} 3
+      %li.page-item
+        %a.page-link{:href => "#"} 4
+      %li.page-item
+        %a.page-link{:href => "#"} 5
+      %li.page-item
+        %a.page-link{"aria-label" => "Next", :href => "#"}
+          %span{"aria-hidden" => "true"} »
+          %span.sr-only Next
