@@ -1,0 +1,21 @@
+%h2 Mugg & Bean
+%h4 &#9733; &#9734; &#9734; &#9734; &#9734;
+%h4
+  %span.tag.tag-default 1
+  reviews
+
+.list-group
+  .container
+    - 3.times do 
+      .row.card.card-outline-info
+        .col-md-3
+          %h5
+            = link_to 'Username', '#'
+          %span.tag.tag-default 1
+          reviews
+        .col-md-9
+          %h5 
+            &#9733; &#9734; &#9734; &#9734; &#9734;
+            %small.text-muted 
+              28/08/16
+          This is where we put the user's review
