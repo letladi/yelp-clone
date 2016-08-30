@@ -1,0 +1,78 @@
+.row
+  .list-group.col-md-2
+    %a.list-group-item.active{:href => "#"}
+      Restaurant
+    %a.list-group-item{:href => "#"} Art and Entertainment
+    %a.list-group-item{:href => "#"} Education
+    %a.list-group-item{:href => "#"} Food
+    %a.list-group-item{:href => "#"} Schools
+
+  .col-md-10
+    %ul.list-group
+      %li.list-group-item 
+        %h3 
+          = link_to 'Mugg & Bean', '#'
+        %h6 &#9734; &#9734; &#9734; &#9734; &#9734;
+        %h6
+          %span.tag.tag-default 0
+          reviews
+        %p 
+
+      %li.list-group-item 
+        %h3 
+          = link_to 'Mugg & Bean', '#'
+        %h6 &#9733; &#9733; &#9733; &#9733; &#9733;
+        %h6
+          %span.tag.tag-default 5
+          reviews
+        %p This is the best place to have a meal around the Pretoria area. I think this is now my favorite place to eat
+
+      %li.list-group-item 
+        %h3 
+          = link_to 'Mugg & Bean', '#'
+        %h6 &#9733; &#9733; &#9733; &#9734; &#9734;
+        %h6
+          %span.tag.tag-default 5
+          reviews
+        %p This is the best place to have a meal around the Pretoria area. I think this is now my favorite place to eat
+
+      %li.list-group-item 
+        %h3 
+          = link_to 'Mugg & Bean', '#'
+        %h6 &#9733; &#9733; &#9733; &#9733; &#9733;
+        %h6
+          %span.tag.tag-default 5
+          reviews
+        %p This is the best place to have a meal around the Pretoria area. I think this is now my favorite place to eat
+
+      %li.list-group-item 
+        %h3 
+          = link_to 'Mugg & Bean', '#'
+        %h6 &#9733; &#9734; &#9734; &#9734; &#9734;
+        %h6
+          %span.tag.tag-default 5
+          reviews
+        %p This is the best place to have a meal around the Pretoria area. I think this is now my favorite place to eat
+
+    %nav{"aria-label" => "..."}
+      %ul.pagination
+        %li.page-item.disabled
+          %a.page-link{"aria-label" => "Previous", :href => "#", :tabindex => "-1"}
+            %span{"aria-hidden" => "true"} «
+            %span.sr-only Previous
+        %li.page-item.active
+          %a.page-link{:href => "#"}
+            1
+            %span.sr-only (current)
+        %li.page-item
+          %a.page-link{:href => "#"} 2
+        %li.page-item
+          %a.page-link{:href => "#"} 3
+        %li.page-item
+          %a.page-link{:href => "#"} 4
+        %li.page-item
+          %a.page-link{:href => "#"} 5
+        %li.page-item
+          %a.page-link{"aria-label" => "Next", :href => "#"}
+            %span{"aria-hidden" => "true"} »
+            %span.sr-only Next
