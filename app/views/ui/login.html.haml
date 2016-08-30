@@ -1,0 +1,12 @@
+.container.form-container
+  .form-group.row
+    %label.col-xs-2.col-form-label{:for => "example-email-input"} Email
+    .col-xs-4
+      %input.form-control{:placeholder => "user@gmail.com", :type => "email"}
+  .form-group.row
+    %label.col-xs-2.col-form-label{:for => "example-email-input"} Password
+    .col-xs-4
+      %input.form-control{:placeholder => "hard-to-guess-word", :type => "password"}
+
+  .form-group.row
+    %button.btn.btn-info{:type => "submit"} Login
