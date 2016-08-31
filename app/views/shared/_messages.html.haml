@@ -1,5 +1,5 @@
-.alert.alert-warning.alert-dismissible.fade.in{:role => "alert"}
-  %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
-    %span{"aria-hidden" => "true"} ×
-  %strong Holy guacamole!
-  You should check in on some of those fields below.
+- flash.each do |name, msg|
+  %div(class="alert alert-#{name} alert-dismissible fade in" role="alert")
+    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+      %span{"aria-hidden" => "true"} ×
+    %strong= msg if msg.is_a?(String)
