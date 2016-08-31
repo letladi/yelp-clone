@@ -3,10 +3,10 @@ class SessionsController < ApplicationController
 		user = User.find_by(email: params[:email])
 		if user && user.authenticate(params[:password])
 			session[:user_id] = user.id
-			flash[:success] = "You logged in successfully. Welcomem back."
+			flash[:success] = "You logged in successfully. Welcome back."
 			redirect_to root_path
 		else
-			flash[:error] = "The details you entered were not valid."
+			flash.now[:danger] = "The details you entered were not valid."
 			render :new
 		end
 	end
