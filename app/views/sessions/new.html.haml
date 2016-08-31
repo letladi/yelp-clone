@@ -1,17 +1,15 @@
-= form_for @user do |f|  
+= form_tag(login_path, method: :post) do 
   .form-container
 
-    %div(class="form-group row #{container_error_class(@user, :email)}")
-      = f.label :email, class: 'col-xs-2 col-form-label'
+    %div(class="form-group row")
+      = label_tag(:email, 'Email:', class: 'col-xs-2 col-form-label')
       .col-xs-4
-        = f.text_field :email, { class: 'form-control input_error_class(@user)', placeholder: "user@gmail.com" }
-        .form-control-feedback= input_error_message(@user, :email)
+        = text_field_tag(:email, params[:email], class: 'form-control', placeholder: "user@gmail.com" )
 
-    %div(class="form-group row #{container_error_class(@user, :password)}")
-      = f.label :password, class: 'col-xs-2 col-form-label'
+    %div(class="form-group row")
+      = label_tag :password, 'Password', class: 'col-xs-2 col-form-label'
       .col-xs-4
-        = f.password_field :email, { class: 'form-control input_error_class(@user)', placeholder: "hard-to-guess-word" }
-        .form-control-feedback= input_error_message(@user, :password)
+        = password_field_tag :password, params[:password], class: 'form-control', placeholder: "hard-to-guess-word" 
 
     .form-group.row
       %button.btn.btn-info{:type => "submit"} Login

@@ -28,7 +28,7 @@ describe SessionsController do
 			it "sets error message" do 
 				bob = Fabricate(:user)
 				post :create, params: { email: bob.email, password: bob.password + 'wrong-word' }
-				expect(flash[:error]).to be
+				expect(flash[:danger]).to be
 			end
 		end
 	end
