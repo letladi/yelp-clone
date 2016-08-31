@@ -1,25 +1,25 @@
 = form_for @user do |f|  
   .form-container
-    .form-group.row.has-danger
+    %div(class="form-group row #{container_error_class(@user, :first_name)}")
       = f.label :first_name, class: 'col-xs-2 col-form-label'
       .col-xs-4
-        = f.text_field :first_name, { class: 'form-control form-control-danger', placeholder: "Kate" }
-        .form-control-feedback Can't be blank
-    .form-group.row.has-danger
+        = f.text_field :first_name, { class: "form-control input_error_class(@user, :first_name)", placeholder: "Kate" }
+        .form-control-feedback= input_error_message(@user, :first_name)
+    %div(class="form-group row #{container_error_class(@user, :last_name)}")
       = f.label :last_name, class: 'col-xs-2 col-form-label'
       .col-xs-4
-        = f.text_field :last_name, { class: 'form-control form-control-danger', placeholder: "Doe" }
-        .form-control-feedback Can't be blank
-    .form-group.row.has-danger
+        = f.text_field :last_name, { class: 'form-control input_error_class(@user, :last_name)', placeholder: "Doe" }
+        .form-control-feedback= input_error_message(@user, :last_name)
+    %div(class="form-group row #{container_error_class(@user, :email)}")
       = f.label :email, class: 'col-xs-2 col-form-label'
       .col-xs-4
-        = f.text_field :email, { class: 'form-control form-control-danger', placeholder: "user@gmail.com" }
-        .form-control-feedback Can't be blank
-    .form-group.row.has-danger
+        = f.text_field :email, { class: 'form-control input_error_class(@user)', placeholder: "user@gmail.com" }
+        .form-control-feedback= input_error_message(@user, :email)
+    %div(class="form-group row #{container_error_class(@user, :password)}")
       = f.label :password, class: 'col-xs-2 col-form-label'
       .col-xs-4
-        = f.password_field :email, { class: 'form-control form-control-danger', placeholder: "hard-to-guess-word" }
-        .form-control-feedback Can't be blank
+        = f.password_field :email, { class: 'form-control input_error_class(@user)', placeholder: "hard-to-guess-word" }
+        .form-control-feedback= input_error_message(@user, :password)
 
     .form-group.row
-      %button.btn.btn-info{:type => "submit"} Sing Up
+      %button.btn.btn-info{:type => "submit"} Sign Up
