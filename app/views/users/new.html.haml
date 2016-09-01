@@ -22,4 +22,4 @@
         .form-control-feedback= input_error_message(@user, :password)
 
     .form-group.row
-      %button.btn.btn-info{:type => "submit"} Sign Up
+      = f.submit "Sign Up", class: "btn btn-info" 
