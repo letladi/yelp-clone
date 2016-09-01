@@ -1,7 +1,7 @@
-%form
-  .form-group.row.has-danger
+= form_for @category do |f|
+  %div(class="form-group row #{container_error_class(@category, :name)}")
     .col-md-4
-      %input.form-control.form-control-danger{:placeholder => "Category name", :type => "text"}
-      .form-control-feedback Can't be blank
+      = f.text_field :name, {placeholder: "Category name", class: "form-control #{input_error_class(@category, :name)}"}
+      .form-control-feedback= input_error_message(@category, :name)
 
-  %button.btn.btn-primary{:type => "submit"} Save
+  =f.submit "Save", class: 'btn btn-primary'
