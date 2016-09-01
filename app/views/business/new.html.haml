@@ -1,17 +1,12 @@
-%form
-  .form-group.row.has-danger
+= form_for @business do |f|
+  %div(class="form-group row #{container_error_class(@business, :name)}")
     .col-md-4
-      %input.form-control.form-control-danger{:placeholder => "Business Name", :type => "text"}
-      .form-control-feedback Can't be blank
+      = f.text_field :name, { placeholder: "Business Name", class: "form-control #{input_error_class(@business, :name)}" }
+      .form-control-feedback= input_error_message(@business, :name)
 
-  .form-group.row.has-danger
+  %div(class="form-group row #{container_error_class(@business, :category)}")
     .col-md-4
-      %label{:for => "exampleSelect1"} Category
-      %select#exampleSelect1.form-control
-        %option Restaurant
-        %option Night Life
-        %option Education
-        %option Automotive
-        %option Arts and Entertainment
-      .form-control-feedback Can't be blank
+      = f.label :category_id, "Category"
+      = f.select :category_id, options_for_category_select(@business.category), { include_blank: true }, { class: 'form-control' }
+      .form-control-feedback= input_error_message(@business, :category)
   %button.btn.btn-primary{:type => "submit"} Save
