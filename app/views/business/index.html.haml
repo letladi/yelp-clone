@@ -1,0 +1,14 @@
+.list-group
+  .container
+    - 3.times do 
+      .row.card.card-outline-info          
+        .col-md-6
+          %h5
+            = link_to Faker::Company.name, '#'
+          %small.text-muted 
+            = Faker::Commerce.department(4)
+        .col-md-6
+          %h5 
+            &#9733; &#9734; &#9734; &#9734; &#9734;
+          %span.tag.tag-default 1
+          reviews
