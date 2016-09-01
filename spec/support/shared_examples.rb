@@ -28,3 +28,9 @@ shared_examples "redirects_to_root_path" do
 		expect(response).to redirect_to root_path
 	end
 end
+
+shared_examples "new_template_is_rendered_again" do 
+	it "renders the new template again" do 
+		expect(response).to render_template :new
+	end
+end

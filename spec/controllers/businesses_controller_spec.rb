@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe BusinessController do 
+describe BusinessesController do 
 	before do 
 		set_current_user
 	end

@@ -26,4 +26,8 @@ module ApplicationHelper
 		end
 		result.join(' ').html_safe
 	end
+
+	def activate_link?(route_name)
+		current_page?(route_name) ? 'active' : ''
+	end
 end
