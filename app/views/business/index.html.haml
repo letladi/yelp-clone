@@ -9,6 +9,6 @@
             = business.category.name
         .col-md-6
           %h5 
-            = review_star_string()
-          %span.tag.tag-default= business.reviews.count
+            = review_star_string(business.rating)
+          %span.tag.tag-default= business.review_count
           reviews

@@ -21,7 +21,6 @@ describe CategoriesController do
 		end
 		context "with valid input" do 
 			before do 
-				food = Fabricate(:category)
 				post :create, category:  Fabricate.attributes_for(:category) 
 			end
 			it "redirects to the root path" do
