@@ -1,0 +1,35 @@
+%form
+  .form-group.row.has-danger
+    %label.col-xs-1.col-form-label{ for: "example-email-input" } Business
+    .col-xs-3
+      %input.form-control{ value: "Mug & Bean", type: 'text', disabled: 'false' }
+      .form-control-feedback Can't be blank
+
+  .form-group.row.has-danger
+    .col-md-4
+      %label{:for => "exampleSelect1"} Rating
+      %select#exampleSelect1.form-control
+        %option(selected: true)
+          select rating
+        %option 1
+        %option 2
+        %option 3
+        %option 4
+        %option 5
+      .form-control-feedback Can't be blank
+  .form-group.row.has-danger
+    .col-md-4
+      %label{:for => "exampleSelect1"} Category
+      %select#exampleSelect1.form-control
+        %option Restaurants
+        %option Night Life
+        %option Education
+        %option Automotive
+        %option Arts and Entertainment
+      .form-control-feedback Can't be blank
+  .form-group.row.has-danger
+    .col-md-4
+      %label{:for => "exampleTextarea"} Enter Review
+      %textarea#exampleTextarea.form-control{:rows => "3"}
+      .form-control-feedback Can't be blank
+  %button.btn.btn-primary{:type => "submit"} Save

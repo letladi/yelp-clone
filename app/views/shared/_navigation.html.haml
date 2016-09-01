@@ -19,10 +19,12 @@
 
 %ul.nav.nav-tabs.bottom-nav
   %li.nav-item
-    = link_to 'Home', '#', class: 'nav-link active'
+    = link_to 'Home', root_path, class: "nav-link #{activate_link?(root_path)}"
   %li.nav-item
-    = link_to 'Write a Review', '#', class: 'nav-link'
+    = link_to 'All Businesses', businesses_path, class: "nav-link #{activate_link?(businesses_path)}"
   %li.nav-item
-    = link_to 'Add Business', new_business_path, class: 'nav-link'
+    = link_to 'Write a Review', '#', class: "nav-link"
   %li.nav-item
-    = link_to 'Add Business Category', new_category_path, class: 'nav-link'
+    = link_to 'Add Business', new_business_path, class: "nav-link #{activate_link?(new_business_path)}"
+  %li.nav-item
+    = link_to 'Add Business Category', new_category_path, class: "nav-link #{activate_link?(new_category_path)}"

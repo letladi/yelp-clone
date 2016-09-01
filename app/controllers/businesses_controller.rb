@@ -1,4 +1,4 @@
-class BusinessController < ApplicationController
+class BusinessesController < ApplicationController
 	before_action :require_user, except: [:index]
 
 	def index
