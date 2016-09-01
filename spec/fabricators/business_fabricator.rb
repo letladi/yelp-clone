@@ -1,4 +1,5 @@
 Fabricator(:business) do
 	name { Faker::Company.name }
-	category
+	categories(count: 3)
+	reviews(count: 3)
 end
