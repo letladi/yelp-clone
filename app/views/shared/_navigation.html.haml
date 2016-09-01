@@ -10,9 +10,12 @@
         = link_to 'Search', '#', class: 'nav-link'
 
   %li.nav-item.col-md-4
-    = link_to 'Sign Up', register_path, class: 'nav-link btn btn-secondary'
-    = link_to 'Log In', login_path, class: 'nav-link btn btn-secondary'  
-    = link_to 'Log Out', logout_path, class: 'nav-link btn btn-secondary', method: :delete  
+    - if current_user
+      = link_to "#{current_user.first_name}", '#', class: 'nav-link btn btn-secondary disabled'
+      = link_to 'Log Out', logout_path, class: 'nav-link btn btn-secondary', method: :delete
+    - else
+      = link_to 'Sign Up', register_path, class: 'nav-link btn btn-secondary'
+      = link_to 'Log In', login_path, class: 'nav-link btn btn-secondary'  
 
 %ul.nav.nav-tabs.bottom-nav
   %li.nav-item
@@ -20,6 +23,6 @@
   %li.nav-item
     = link_to 'Write a Review', '#', class: 'nav-link'
   %li.nav-item
-    = link_to 'Add Business', '#', class: 'nav-link'
+    = link_to 'Add Business', new_business_path, class: 'nav-link'
   %li.nav-item
     = link_to 'Add Business Category', new_category_path, class: 'nav-link'
