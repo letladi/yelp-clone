@@ -16,14 +16,26 @@ describe BusinessesController do
 	end
 
 	describe "GET new" do
-		before do
-			get :new
+		before do |example|
+			unless example.metadata[:skip_before]
+				Fabricate(:category)
+				get :new
+			end
 		end
 		it_behaves_like "require_login" do 
 			let(:action) { get :new }
 		end
 		it "sets @business variable" do
 			expect(assigns(:business)).to be_truthy
+		end
+		context "no categories exist", skip_before: true do 
+			before do 
+				get :new
+			end
+		  it "redirects to the new_category path if there are no categories" do 
+		  	expect(response).to redirect_to new_category_path
+      end
+      it_behaves_like "error_message_is_set"
 		end
 	end
 
