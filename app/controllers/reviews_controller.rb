@@ -1,11 +1,9 @@
 class ReviewsController < ApplicationController
-	before_action :require_user
+	before_action :require_user, :get_existing_business, :require_existing_business
 	def new
-		@review = Review.new
 	end
 
 	def create
-		@business = Business.find(params[:business_id])
 		@review = Review.new(review_params)
 		@review.business = @business
 		@review.user = current_user
@@ -20,6 +18,18 @@ class ReviewsController < ApplicationController
 	end
 
 	private
+
+	def get_existing_business
+		@business = Business.find_by(id: params[:business_id])
+	end
+
+	def require_existing_business
+		unless @business
+			flash[:danger] = "The specified business does not exist."
+			redirect_back(fallback_location: root_path) 
+		end
+	end
+
 
 	def review_params
 		params.require(:review).permit(:rating, :description)
