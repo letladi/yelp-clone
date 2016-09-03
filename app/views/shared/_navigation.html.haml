@@ -11,7 +11,7 @@
 
   %li.nav-item.col-md-4
     - if current_user
-      = link_to "#{current_user.first_name}", '#', class: 'nav-link btn btn-secondary disabled'
+      = link_to "#{current_user.first_name}", user_path(current_user), class: 'nav-link btn btn-secondary'
       = link_to 'Log Out', logout_path, class: 'nav-link btn btn-secondary', method: :delete
     - else
       = link_to 'Sign Up', register_path, class: 'nav-link btn btn-secondary'
@@ -22,9 +22,9 @@
     = link_to 'Home', root_path, class: "nav-link #{activate_link?(root_path)}"
   %li.nav-item
     = link_to 'All Businesses', businesses_path, class: "nav-link #{activate_link?(businesses_path)}"
-  - if @business && current_page?(business_path(@business))
+  - if business_page?(@business)
     %li.nav-item
-      = link_to 'Write a Review', '#', class: "nav-link"
+      = link_to 'Write a Review', new_business_review_path(@business), class: "nav-link"
   %li.nav-item
     = link_to 'Add Business', new_business_path, class: "nav-link #{activate_link?(new_business_path)}"
   %li.nav-item
