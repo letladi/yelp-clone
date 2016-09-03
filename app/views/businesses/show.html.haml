@@ -10,7 +10,7 @@
       .row.card.card-outline-info
         .col-md-3
           %h5
-            = link_to "review.user", user_path(review.user)
+            = link_to "#{review.user.first_name}", user_path(review.user)
           %span.tag.tag-default= review.user.review_count
           = plural_word_by_count(review.user.review_count, 'review') 
         .col-md-9
