@@ -1,6 +1,6 @@
 This is a simple Yelp clone. Watch out for the following features (with their accompanying tests);
 
-1. User can see a list of businesses (yelp currently doesn't have this page, but we'll build it anyway)
+1. User can see a list of businesses
 2. User can add a business
 3. User Registration -  Sign Up
 4. User Registration -  Sign in and Sign Out

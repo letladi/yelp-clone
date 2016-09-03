@@ -1,35 +1,17 @@
-%form
-  .form-group.row.has-danger
-    %label.col-xs-1.col-form-label{ for: "example-email-input" } Business
+= form_for [@business, @review] do |f|
+  %div(class="form-group row")
+    = f.label :business, class: 'col-xs-1 col-form-label'
     .col-xs-3
-      %input.form-control{ value: "Mug & Bean", type: 'text', disabled: 'false' }
-      .form-control-feedback Can't be blank
+      = f.text_field :business , value: "#{@business.name}", disabled: 'true', class: 'form-control'
 
-  .form-group.row.has-danger
+  %div(class="form-group row #{container_error_class(@review, :rating)}")
     .col-md-4
-      %label{:for => "exampleSelect1"} Rating
-      %select#exampleSelect1.form-control
-        %option(selected: true)
-          select rating
-        %option 1
-        %option 2
-        %option 3
-        %option 4
-        %option 5
-      .form-control-feedback Can't be blank
-  .form-group.row.has-danger
+      = f.label :rating
+      = f.select :rating, options_for_rating_select(@review.rating), { include_blank: 'select rating' }, { class: 'form-control' }
+      .form-control-feedback= input_error_message(@review, :rating)
+  %div(class="form-group row #{container_error_class(@review, :description)}")
     .col-md-4
-      %label{:for => "exampleSelect1"} Category
-      %select#exampleSelect1.form-control
-        %option Restaurants
-        %option Night Life
-        %option Education
-        %option Automotive
-        %option Arts and Entertainment
-      .form-control-feedback Can't be blank
-  .form-group.row.has-danger
-    .col-md-4
-      %label{:for => "exampleTextarea"} Enter Review
-      %textarea#exampleTextarea.form-control{:rows => "3"}
-      .form-control-feedback Can't be blank
-  %button.btn.btn-primary{:type => "submit"} Save
+      = f.label :description, 'Enter review comments'
+      = f.text_area :description, class: 'form-control', rows: 3
+      .form-control-feedback= input_error_message(@review, :description)
+  = f.submit "Save", class: 'btn btn-primary'

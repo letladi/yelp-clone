@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
 	before_action :require_user, :get_existing_business, :require_existing_business
 	def new
+		@review = Review.new
 	end
 
 	def create
