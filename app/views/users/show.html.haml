@@ -1,0 +1,38 @@
+.container
+  .row
+    %h3= @user.full_name
+    %span.tag.tag-default 
+      = pluralize(@user.review_count, 'review')
+  - @user.reviews.each do |review|
+    .row
+      .card.card-outline-secondary
+        %h5= link_to "#{review.business.name}", business_path(review.business)
+        %h6 
+          = review_star_string(review.rating)
+          %small.text-muted 
+            = short_date(review.created_at)
+        %p= review.description
+
+    
+  %nav{"aria-label" => "..."}
+    %ul.pagination
+      %li.page-item.disabled
+        %a.page-link{"aria-label" => "Previous", :href => "#", :tabindex => "-1"}
+          %span{"aria-hidden" => "true"} «
+          %span.sr-only Previous
+      %li.page-item.active
+        %a.page-link{:href => "#"}
+          1
+          %span.sr-only (current)
+      %li.page-item
+        %a.page-link{:href => "#"} 2
+      %li.page-item
+        %a.page-link{:href => "#"} 3
+      %li.page-item
+        %a.page-link{:href => "#"} 4
+      %li.page-item
+        %a.page-link{:href => "#"} 5
+      %li.page-item
+        %a.page-link{"aria-label" => "Next", :href => "#"}
+          %span{"aria-hidden" => "true"} »
+          %span.sr-only Next
