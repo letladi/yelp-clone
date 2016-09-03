@@ -22,10 +22,11 @@
     = link_to 'Home', root_path, class: "nav-link #{activate_link?(root_path)}"
   %li.nav-item
     = link_to 'All Businesses', businesses_path, class: "nav-link #{activate_link?(businesses_path)}"
-  - if business_page?(@business)
+  - if current_user
+    - if business_page?(@business)
+      %li.nav-item
+        = link_to 'Write a Review', new_business_review_path(@business), class: "nav-link"
     %li.nav-item
-      = link_to 'Write a Review', new_business_review_path(@business), class: "nav-link"
-  %li.nav-item
-    = link_to 'Add Business', new_business_path, class: "nav-link #{activate_link?(new_business_path)}"
-  %li.nav-item
-    = link_to 'Add Business Category', new_category_path, class: "nav-link #{activate_link?(new_category_path)}"
+      = link_to 'Add Business', new_business_path, class: "nav-link #{activate_link?(new_business_path)}"
+    %li.nav-item
+      = link_to 'Add Business Category', new_category_path, class: "nav-link #{activate_link?(new_category_path)}"
