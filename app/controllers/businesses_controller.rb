@@ -1,13 +1,13 @@
 class BusinessesController < ApplicationController
 	before_action :require_user, except: [:index]
 	before_action :require_categories, only: [:new]
+	before_action :get_existing_business, :require_existing_business, only: [:show]
 
 	def index
 		@businesses = Business.all
 	end
 
 	def show
-		@business = Business.find_by(id: params[:id])
 	end
 
 	def new	
@@ -29,6 +29,10 @@ class BusinessesController < ApplicationController
 
 	def business_params
 		params.require(:business).permit(:name, :category_id)
+	end
+
+	def get_existing_business
+		@business = Business.find_by(id: params[:id])
 	end
 
 	def require_categories
