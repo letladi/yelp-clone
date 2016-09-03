@@ -1,21 +1,21 @@
-%h2 Mugg & Bean
-%h4 &#9733; &#9734; &#9734; &#9734; &#9734;
+%h2= @business.name
+%h4= review_star_string(@business.rating)
 %h4
-  %span.tag.tag-default 1
-  reviews
+  %span.tag.tag-default= @business.review_count
+  = plural_word_by_count(@business.review_count, 'review') 
 
 .list-group
   .container
-    - 3.times do 
+    - @business.reviews.each do |review| 
       .row.card.card-outline-info
         .col-md-3
           %h5
-            = link_to 'Username', '#'
-          %span.tag.tag-default 1
-          reviews
+            = link_to "review.user", user_path(review.user)
+          %span.tag.tag-default= review.user.review_count
+          = plural_word_by_count(review.user.review_count, 'review') 
         .col-md-9
           %h5 
-            &#9733; &#9734; &#9734; &#9734; &#9734;
+            = review_star_string(review.rating)
             %small.text-muted 
-              28/08/16
-          This is where we put the user's review
+              short_date(review.created_at)
+          = review.description

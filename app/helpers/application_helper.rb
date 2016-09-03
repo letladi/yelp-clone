@@ -34,4 +34,14 @@ module ApplicationHelper
 	def activate_link?(route_name)
 		current_page?(route_name) ? 'active' : ''
 	end
+
+	def plural_word_by_count(num, word) 
+		pluralized_result = pluralize(num, word)
+		num, plural_word = pluralized_result.split(' ')
+		plural_word
+	end
+
+	def short_date(date)
+		date.strftime("%d/%m/%Y")
+	end
 end
