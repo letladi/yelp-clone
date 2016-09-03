@@ -16,6 +16,10 @@ module ApplicationHelper
 		options_for_select(Category.all.map { |c| [c.name, c.id] }, selected)
 	end
 
+	def options_for_rating_select(selected=nil)
+		options_for_select([1, 2, 3, 4, 5].map { |c| [pluralize(c, 'star'), c] }, selected)
+	end
+
 	def review_star_string(rating=0)
 		blank_star = '&#9734;'
 		star = '&#9733;'

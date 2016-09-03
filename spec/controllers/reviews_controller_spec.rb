@@ -8,6 +8,11 @@ describe ReviewsController do
 			get :new, business_id: kfc.id 
 			expect(assigns(:business)).to be_instance_of(Business)
 		end
+		it "sets @review variable" do
+			set_current_user
+			get :new, business_id: kfc.id
+			expect(assigns(:review)).to be_instance_of(Review) 
+		end
 		context "specified business does not exist" do 
 			before do |example|
 				unless example.metadata[:skip_before]
