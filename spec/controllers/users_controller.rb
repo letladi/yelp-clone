@@ -9,6 +9,15 @@ describe UsersController do
 		end
 	end
 
+	describe 'GET show' do 
+		context "specified user does not exist" do 
+			it_behaves_like "goes_back_to_previous_path_or_root_path" do 
+				let(:previous_path) { root_path }
+				let(:action) { get :show }
+			end
+		end
+	end
+
 	describe 'POST create' do
 		context "with valid inputs" do 
 			it "creates a new user" do
