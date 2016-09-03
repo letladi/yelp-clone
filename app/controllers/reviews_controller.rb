@@ -24,14 +24,6 @@ class ReviewsController < ApplicationController
 		@business = Business.find_by(id: params[:business_id])
 	end
 
-	def require_existing_business
-		unless @business
-			flash[:danger] = "The specified business does not exist."
-			redirect_back(fallback_location: root_path) 
-		end
-	end
-
-
 	def review_params
 		params.require(:review).permit(:rating, :description)
 	end

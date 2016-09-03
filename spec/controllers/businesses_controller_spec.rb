@@ -20,7 +20,12 @@ describe BusinessesController do
 			get :show, id: Fabricate(:business).id
 			expect(assigns(:business)).to be_instance_of(Business)
 		end
-		context "business does not exist"
+		context "business does not exist" do 
+			it_behaves_like "goes_back_to_previous_path_or_root_path" do 
+				let(:previous_path) { businesses_path }
+				let(:action) { get :show, id: 'uuid-doodle' }
+			end
+		end
 	end
 
 	describe "GET new" do
