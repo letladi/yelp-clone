@@ -15,6 +15,14 @@ describe BusinessesController do
 		end
 	end
 
+	describe "GET show" do 
+		it "sets @business variable" do 
+			get :show, id: Fabricate(:business).id
+			expect(assigns(:business)).to be_instance_of(Business)
+		end
+		context "business does not exist"
+	end
+
 	describe "GET new" do
 		before do |example|
 			unless example.metadata[:skip_before]

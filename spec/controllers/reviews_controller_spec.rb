@@ -14,22 +14,10 @@ describe ReviewsController do
 			expect(assigns(:review)).to be_instance_of(Review) 
 		end
 		context "specified business does not exist" do 
-			before do |example|
-				unless example.metadata[:skip_before]
-					set_current_user
-					request.env["HTTP_REFERER"] = businesses_path
-					get :new, business_id: 'uuid-doodle'
-				end
+			it_behaves_like "goes_back_to_previous_path_or_root_path" do 
+				let(:previous_path) { businesses_path }
+				let(:action) { get :new, business_id: 'uuid-doodle' }
 			end
-			it "goes to the previous page if the specified business does not exist" do 			
-				expect(response).to redirect_to request.env['HTTP_REFERER']
-			end
-			it "redirects to the root path if there is no previous page", skip_before: true do
-				set_current_user
-				get :new, business_id: 'uuid-doodle'
-				expect(response).to redirect_to root_path
-			end
-			it_behaves_like "error_message_is_set"
 		end
 		it_behaves_like "require_login" do 
 			let(:action) { get :new, business_id: kfc.id  }
