@@ -44,4 +44,14 @@ module ApplicationHelper
 	def short_date(date)
 		date.strftime("%d/%m/%Y")
 	end
+
+	def business_page?(business)
+		return false if business.nil?
+
+		if business.new_record?
+			return false
+		else
+			current_page?(business_path(business))
+		end
+	end
 end
