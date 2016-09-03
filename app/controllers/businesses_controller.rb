@@ -1,5 +1,5 @@
 class BusinessesController < ApplicationController
-	before_action :require_user, except: [:index]
+	before_action :require_user, except: [:index, :show]
 	before_action :require_categories, only: [:new]
 	before_action :get_existing_business, :require_existing_business, only: [:show]
 

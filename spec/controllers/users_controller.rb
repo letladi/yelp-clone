@@ -35,6 +35,11 @@ describe UsersController do
 				post :create, user: bob
 				expect(response).to redirect_to root_path
 			end
+			it "logs in user" do 
+				bob = Fabricate.attributes_for(:user)
+				post :create, user: bob
+				expect(session[:user_id]).to be
+			end
 		end
 		context "with invalid inputs" do 
 			it "renders the registration page again" do 
