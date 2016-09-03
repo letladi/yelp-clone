@@ -22,4 +22,11 @@ describe User do
 			expect(bob.review_count).to eq(0)
 		end
 	end
+
+	describe "#full_name" do 
+		it "returns the first and last names concatenated" do 
+			bob = Fabricate(:user, first_name: 'Bob', last_name: 'Cocker')
+			expect(bob.full_name).to eq('Bob Cocker')
+		end
+	end
 end
