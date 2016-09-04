@@ -17,7 +17,8 @@ module ApplicationHelper
 	end
 
 	def options_for_rating_select(selected=nil)
-		options_for_select([1, 2, 3, 4, 5].map { |c| [pluralize(c, 'star'), c] }, selected)
+		valid_ratings = (Review::MIN_RATING..Review::MAX_RATING).to_a
+		options_for_select(valid_ratings.map { |c| [pluralize(c, 'star'), c] }, selected)
 	end
 
 	def review_star_string(rating=0)
