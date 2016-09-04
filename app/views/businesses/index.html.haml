@@ -12,5 +12,6 @@
             = review_star_string(business.rating)
           %span.tag.tag-default= business.review_count
           reviews
-        .col-md-2
-          = link_to "Add Review", new_business_review_path(business)
+        - if current_user
+          .col-md-2
+            = link_to "Add Review", new_business_review_path(business)
