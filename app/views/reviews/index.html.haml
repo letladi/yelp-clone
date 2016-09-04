@@ -9,50 +9,13 @@
 
   .col-md-10
     %ul.list-group
-      %li.list-group-item 
-        %h3 
-          = link_to 'Mugg & Bean', '#'
-        %h6 &#9734; &#9734; &#9734; &#9734; &#9734;
-        %h6
-          %span.tag.tag-default 0
-          reviews
-        %p 
+      - @reviews.each do |review|
+        %li.list-group-item 
+          %h3 
+            = link_to "#{review.business.name}", business_path(review.business)
+          %h6= review_star_string(review.rating)
+          %p= review.description
 
-      %li.list-group-item 
-        %h3 
-          = link_to 'Mugg & Bean', '#'
-        %h6 &#9733; &#9733; &#9733; &#9733; &#9733;
-        %h6
-          %span.tag.tag-default 5
-          reviews
-        %p This is the best place to have a meal around the Pretoria area. I think this is now my favorite place to eat
-
-      %li.list-group-item 
-        %h3 
-          = link_to 'Mugg & Bean', '#'
-        %h6 &#9733; &#9733; &#9733; &#9734; &#9734;
-        %h6
-          %span.tag.tag-default 5
-          reviews
-        %p This is the best place to have a meal around the Pretoria area. I think this is now my favorite place to eat
-
-      %li.list-group-item 
-        %h3 
-          = link_to 'Mugg & Bean', '#'
-        %h6 &#9733; &#9733; &#9733; &#9733; &#9733;
-        %h6
-          %span.tag.tag-default 5
-          reviews
-        %p This is the best place to have a meal around the Pretoria area. I think this is now my favorite place to eat
-
-      %li.list-group-item 
-        %h3 
-          = link_to 'Mugg & Bean', '#'
-        %h6 &#9733; &#9734; &#9734; &#9734; &#9734;
-        %h6
-          %span.tag.tag-default 5
-          reviews
-        %p This is the best place to have a meal around the Pretoria area. I think this is now my favorite place to eat
 
     %nav{"aria-label" => "..."}
       %ul.pagination
