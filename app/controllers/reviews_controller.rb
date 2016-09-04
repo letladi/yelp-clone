@@ -1,5 +1,10 @@
 class ReviewsController < ApplicationController
-	before_action :require_user, :get_existing_business, :require_existing_business
+	before_action :require_user, :get_existing_business, :require_existing_business, except: [:index]
+
+	def index
+		@reviews = Review.all
+	end
+
 	def new
 		@review = Review.new
 	end
