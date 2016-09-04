@@ -2,6 +2,16 @@ require 'rails_helper'
 
 describe ReviewsController do 
 	let(:kfc) { Fabricate(:business) }
+
+	describe 'GET index' do 
+		it "sets @reviews variable" do 
+			get :index
+			expect(assigns(:reviews)).to be
+		end
+		it "returns only 6 reviews if there are more than 6 reviews"
+		it "if there are less than 6 reviews, it returns all of them"
+		it "returns the reviews in descending order by creation date"
+	end
 	describe 'GET new' do
 		it "sets @business variable" do 
 			set_current_user

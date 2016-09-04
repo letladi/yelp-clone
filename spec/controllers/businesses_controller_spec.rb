@@ -70,7 +70,6 @@ describe BusinessesController do
 		end
 		context "with invalid inputs" do 
 			before do 
-				food = Fabricate(:category)
 				post :create, business: Fabricate.attributes_for(:business, name: '') 
 			end
 			it "does not create a business" do 
