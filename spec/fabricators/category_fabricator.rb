@@ -1,3 +1,3 @@
 Fabricator(:category) do
-	name { Faker::Commerce.department }
+	name { Faker::Name.name }
 end
