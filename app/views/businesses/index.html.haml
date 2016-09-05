@@ -1,17 +1,20 @@
-.list-group
-  .container
-    - @businesses.each do |business|
-      .row.card.card-outline-info          
-        .col-md-5
-          %h5
-            = link_to "#{business.name}", business_path(business)
-          %small.text-muted 
-            = business.category.name
-        .col-md-5
-          %h5 
-            = review_star_string(business.rating)
-          %span.tag.tag-default= business.review_count
-          reviews
-        - if current_user
-          .col-md-2
-            = link_to "Add Review", new_business_review_path(business)
+- if Business.count.zero?
+  %h2.text-md-center No businesses have been added yet.
+- else
+  .list-group
+    .container
+      - @businesses.each do |business|
+        .row.card.card-outline-info          
+          .col-md-5
+            %h5
+              = link_to "#{business.name}", business_path(business)
+            %small.text-muted 
+              = business.category.name
+          .col-md-5
+            %h5 
+              = review_star_string(business.rating)
+            %span.tag.tag-default= business.review_count
+            reviews
+          - if current_user
+            .col-md-2
+              = link_to "Add Review", new_business_review_path(business)

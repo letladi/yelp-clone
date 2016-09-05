@@ -1,14 +1,7 @@
 %ul.nav.row.top-nav
-  %li.nav-item.col-md-4
+  %li.nav-item.col-md-8
     %h1
       = link_to "Yelp", root_path, class: 'nav-link' 
-  %li.nav-item.col-md-4
-    .input-group
-      %span#basic-addon1.input-group-addon Find
-      %input.form-control{placeholder: "tacos, cheap dinner, Max's", type: "text", name: "search"}
-      %span#basic-addon2.input-group-addon 
-        = link_to 'Search', '#', class: 'nav-link'
-
   %li.nav-item.col-md-4
     - if current_user
       = link_to "#{current_user.first_name}", user_path(current_user), class: 'nav-link btn btn-secondary'
@@ -19,7 +12,7 @@
 
 %ul.nav.nav-tabs.bottom-nav
   %li.nav-item
-    = link_to 'Home', root_path, class: "nav-link #{activate_link?(root_path)}"
+    = link_to 'Recent Reviews', root_path, class: "nav-link #{activate_link?(root_path)}"
   %li.nav-item
     = link_to 'All Businesses', businesses_path, class: "nav-link #{activate_link?(businesses_path)}"
   - if current_user
