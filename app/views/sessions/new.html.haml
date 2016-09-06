@@ -2,7 +2,7 @@
   .form-container
 
     %div(class="form-group row")
-      = label_tag(:email, 'Email:', class: 'col-xs-2 col-form-label')
+      = label_tag(:email, 'Email', class: 'col-xs-2 col-form-label')
       .col-xs-4
         = text_field_tag(:email, params[:email], class: 'form-control', placeholder: "user@gmail.com" )
 
