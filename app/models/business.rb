@@ -16,4 +16,8 @@ class Business < ApplicationRecord
 	def review_count
 		reviews.size
 	end
+
+	def reviewed_by?(user)
+		reviews.where(user: user).empty? ? false : true
+	end
 end
