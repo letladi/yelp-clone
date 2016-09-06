@@ -3,15 +3,16 @@ require 'rails_helper'
 feature "User browsing the application" do 
 	scenario "user logged in" do
 		visit root_path
-    expect(page).to have_content('Yelp')
-    expect(page).to have_content('Sign Up')
-    expect(page).to have_content('Log In')
-    expect(page).to have_content('Recent Reviews')
-    expect(page).to have_content('All Businesses')
 
-    expect(page).to_not have_content('Write a Review')
-    expect(page).to_not have_content('Add Business')
-    expect(page).to_not have_content('Add Business Category')
+    ['Yelp', 'Sign Up', 'Log In', 
+      'Recent Reviews', 'All Businesses'].each do |link_text|
+      expect_link_to_be_visible(link_text)
+    end
+
+    ['Write a Review', 'Add Business', 
+      'Add Business Category'].each do |link_text|
+      expect_link_to_not_be_visible(link_text)
+    end
 	end
 
 	scenario 'user not logged in' do 
@@ -20,26 +21,31 @@ feature "User browsing the application" do
 
     login(bob)
 
-    expect(page).to_not have_content('Sign Up')
-    expect(page).to_not have_content('Log In')
-    expect(page).to_not have_content('Write a Review')
+    ['Sign Up', 'Log In', 'Write a Review'].each do |link_text|
+      expect_link_to_not_be_visible(link_text)
+    end
 
-    expect(page).to have_content('Yelp')
-    expect(page).to have_content('Bob')
-    expect(page).to have_content('Recent Reviews')
-    expect(page).to have_content('All Businesses')
-
-    expect(page).to have_content('Add Business')
-    expect(page).to have_content('Add Business Category')
+    ['Yelp', 'Bob', 'Recent Reviews', 'All Businesses', 
+      'Add Business', 'Add Business Category'].each do |link_text|
+      expect_link_to_be_visible(link_text)
+    end
 
     visit businesses_path
 
-    expect(page).to have_content(kfc.name)
-    expect(page).to have_content('Add Review')
+    [kfc.name, 'Add Review'].each do |link_text|
+      expect_link_to_be_visible(link_text)
+    end
 
     click_link(kfc.name)
 
     expect(page).to have_content('Write a Review')
+  end
 
+  def expect_link_to_be_visible(link_text)
+    expect(page).to have_content(link_text)
+  end
+
+  def expect_link_to_not_be_visible(link_text)
+    expect(page).to_not have_content(link_text)
   end
 end
