@@ -8,13 +8,13 @@ feature "User can add a business" do
 		category_name = 'food'
 		business_name = 'KFC'
 
-		go_to_page_for_adding_new_business
+		go_to_new_business_page
 		expect(page).to have_content('Please create a category for your business before adding the business.')
 
 		create_new_category(category_name)
 
 		expect(page).to have_content('new category was created successfully.')
-		go_to_page_for_adding_new_business
+		go_to_new_business_page
 
 		create_new_business(business_name, category_name)
 
@@ -27,7 +27,7 @@ feature "User can add a business" do
 		visit root_path
 		login
 
-		go_to_page_for_adding_new_business
+		go_to_new_business_page
 
 		business_name = 'KFC'
 		create_new_business(business_name, food.name)
@@ -36,7 +36,7 @@ feature "User can add a business" do
 		expect(page).to have_content(business_name)
 	end
 
-	def go_to_page_for_adding_new_business
+	def go_to_new_business_page
 		click_link 'Add Business'
 	end
 
