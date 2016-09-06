@@ -25,7 +25,7 @@ feature "User browsing the application" do
       expect_link_to_not_be_visible(link_text)
     end
 
-    ['Yelp', 'Bob', 'Recent Reviews', 'All Businesses', 
+    ['Yelp', 'Bob', 'Log Out', 'Recent Reviews', 'All Businesses', 
       'Add Business', 'Add Business Category'].each do |link_text|
       expect_link_to_be_visible(link_text)
     end
