@@ -9,15 +9,28 @@ feature "User can add a review" do
 		visit root_path
 		expect(page).to_not have_content(kfc.name)
 
-		visit business_path(kfc)
-		click_link "Write a Review"
-		select '4 stars', from: 'Rating'
-		find('#review_description').set("finger lickin' good")
-		click_on 'Save'
+		go_to_business_page(kfc)
+		expect_link_to_be_visible("Write a Review")
+		go_to_new_review_page
+		create_review('4 stars', "finger lickin' good")
 
 		expect(page).to have_content(kfc.name)
 
-		visit business_path(kfc)
-		expect(page).to_not have_content('Write a Review')
+		go_to_business_page(kfc)
+		expect_link_to_not_be_visible('Write a Review')
+	end
+
+	def go_to_business_page(business)
+		visit business_path(business)
+	end
+
+	def go_to_new_review_page
+		click_link 'Write a Review'
+	end
+
+	def create_review(review, review_description)
+		select review, from: 'Rating'
+		find('#review_description').set(review_description)
+		click_on 'Save'
 	end
 end
