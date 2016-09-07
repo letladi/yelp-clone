@@ -37,13 +37,13 @@ describe Business do
 		it "returns true if the user has already reviewed the user" do 
 			kfc = Fabricate(:business)
 			bob = Fabricate(:user)
-			review = Fabricate(:review, business: kfc, user: bob)
+			Fabricate(:review, business: kfc, user: bob)
 			expect(kfc.reviewed_by?(bob)).to be_truthy
 		end
 		it "returns false if the user has not reviewed the business" do 
 			kfc = Fabricate(:business)
 			bob = Fabricate(:user)
-			review = Fabricate(:review, business: kfc)
+			Fabricate(:review, business: kfc)
 			expect(kfc.reviewed_by?(bob)).to be_falsy
 		end
 	end

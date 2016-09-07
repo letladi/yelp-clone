@@ -46,7 +46,8 @@ module ApplicationHelper
 		date.strftime("%d/%m/%Y")
 	end
 
-	def business_page?(business)
+	def business_page?
+		business = Business.find_by(id: params[:id])
 		return false if business.nil?
 
 		if business.new_record?

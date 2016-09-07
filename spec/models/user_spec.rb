@@ -13,8 +13,8 @@ describe User do
 			bob = Fabricate(:user)
 			kfc = Fabricate(:business)
 			mcD = Fabricate(:business)
-			review1 = Fabricate(:review, business: kfc, user: bob)
-			review2 = Fabricate(:review, business: mcD, user: bob)
+			Fabricate(:review, business: kfc, user: bob)
+			Fabricate(:review, business: mcD, user: bob)
 			expect(bob.review_count).to eq(2)
 		end
 		it "returns zero if the user has not posted any reviews" do 

@@ -17,11 +17,11 @@ describe CategoriesController do
 
 	describe 'POST create' do	
 		it_behaves_like "require_login" do
-			let(:action) { post :create, category: Fabricate.attributes_for(:category)  }
+			let(:action) { post :create, params: { category: Fabricate.attributes_for(:category) }  }
 		end
 		context "with valid input" do 
 			before do 
-				post :create, category:  Fabricate.attributes_for(:category) 
+				post :create, params: { category:  Fabricate.attributes_for(:category) } 
 			end
 			it "redirects to the root path" do
 				expect(response).to redirect_to root_path
@@ -35,7 +35,7 @@ describe CategoriesController do
 		end
 		context "with invalid inputs" do 
 			before do 
-				post :create, category: Fabricate.attributes_for(:category, name: '') 
+				post :create, params: { category: Fabricate.attributes_for(:category, name: '') } 
 			end
 			it "sets error message" do 
 				expect(flash[:danger]).to be

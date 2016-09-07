@@ -17,13 +17,13 @@ describe BusinessesController do
 
 	describe "GET show" do 
 		it "sets @business variable" do 
-			get :show, id: Fabricate(:business).id
+			get :show, params: { id: Fabricate(:business).id }
 			expect(assigns(:business)).to be_instance_of(Business)
 		end
 		context "business does not exist" do 
 			it_behaves_like "goes_back_to_previous_path_or_root_path" do 
 				let(:previous_path) { businesses_path }
-				let(:action) { get :show, id: 'uuid-doodle' }
+				let(:action) { get :show, params: { id: 'uuid-doodle' } }
 			end
 		end
 	end
@@ -55,12 +55,12 @@ describe BusinessesController do
 	describe "POST create" do 
 		it_behaves_like "require_login" do
 			food = Fabricate(:category)
-		  let(:action) { post :create, business: Fabricate.attributes_for(:business, category_id: food.id) }
+		  let(:action) { post :create, params: { business: Fabricate.attributes_for(:business, category_id: food.id) } }
 		end
 		context "with valid inputs" do 
 			before do 
 				food = Fabricate(:category)
-				post :create, business: Fabricate.attributes_for(:business, category_id: food.id) 
+				post :create, params: { business: Fabricate.attributes_for(:business, category_id: food.id) }
 			end
 			it_behaves_like "redirects_to_root_path"
 			it "create a new business" do 
@@ -70,7 +70,7 @@ describe BusinessesController do
 		end
 		context "with invalid inputs" do 
 			before do 
-				post :create, business: Fabricate.attributes_for(:business, name: '') 
+				post :create, params: { business: Fabricate.attributes_for(:business, name: '') } 
 			end
 			it "does not create a business" do 
 				expect(Business.count).to eq(0)
