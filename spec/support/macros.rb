@@ -18,3 +18,11 @@ def login(a_user=nil)
   fill_in 'Password', with: user.password
   click_button 'Login'
 end
+
+def expect_link_to_be_visible(link_text)
+  expect(page).to have_content(link_text)
+end
+
+def expect_link_to_not_be_visible(link_text)
+  expect(page).to_not have_content(link_text)
+end
