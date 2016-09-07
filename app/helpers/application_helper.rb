@@ -49,11 +49,6 @@ module ApplicationHelper
 	def business_page?
 		business = Business.find_by(id: params[:id])
 		return false if business.nil?
-
-		if business.new_record?
-			return false
-		else
-			current_page?(business_path(business))
-		end
+		current_page?(business_path(business))
 	end
 end
