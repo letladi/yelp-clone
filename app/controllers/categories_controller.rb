@@ -1,24 +1,25 @@
-class CategoriesController < ApplicationController 
-	before_action :require_user, only: [:new, :create]
-	def new
-		@category = Category.new
-	end
+class CategoriesController < ApplicationController
+  before_action :require_user, only: [:new, :create]
 
-	def create
-		@category = Category.new(category_params)
+  def new
+    @category = Category.new
+  end
 
-		if @category.save
-			flash[:success] = "new category was created successfully."
-			redirect_to root_path
-		else
-			flash[:danger] = "Category was not created"
-			render :new
-		end
-	end
+  def create
+    @category = Category.new(category_params)
 
-	private
+    if @category.save
+      flash[:success] = "new category was created successfully."
+      redirect_to root_path
+    else
+      flash[:danger] = "Category was not created"
+      render :new
+    end
+  end
 
-	def category_params
-		params.require(:category).permit(:name)
-	end
+  private
+
+  def category_params
+    params.require(:category).permit(:name)
+  end
 end
